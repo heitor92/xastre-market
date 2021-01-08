@@ -1,11 +1,32 @@
 version: "3.9"
 services:
   app:
+    labels: 
+      - command.php
+    hostname: app
+    container_name: xastre-market-app
     volumes: 
-      - .:/var/www/html
+      - ./xastre-market-app:/var/www/html
       - /tmp:/tmp
     build:
       context: containers/app/
       dockerfile: Dockerfile.dev
+      args:
+        - TIMEZONE=America/Sao_Paulo
     ports:
       - "80:80"
+    depends_on: 
+      - db
+  db:
+    hostname: db
+    container_name: xastre-market-db
+    build:
+      context: containers/db/
+      dockerfile: Dockerfile.dev
+      args: 
+        - MYSQL_ROOT_PASSWORD=secret
+        - MYSQL_DATABASE=db_market
+        - TIMEZONE=America/Sao_Paulo
+    ports: 
+      - "3306:3306"
+    

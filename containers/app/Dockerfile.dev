@@ -1,20 +1,25 @@
 FROM php:8.0.0-apache
 
-ENV TZ=America/Sao_Paulo
+ARG TIMEZONE
+
+ENV TZ=${TIMEZONE}
 ENV COMPOSER_HOME=/tmp/.composer
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
+    && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri -e 's!/var/www/!/var/www/html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf 
 
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
-
-
-RUN apt update \
-    && apt install -y libzip-dev zip unzip\
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt install -y libzip-dev zip unzip nodejs \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && docker-php-ext-configure bcmath --enable-bcmath \
     && docker-php-ext-install -j$(nproc) bcmath \
     && docker-php-ext-configure zip \
     && docker-php-ext-install -j$(nproc) zip \
+    && docker-php-ext-configure pdo_mysql --with-pdo-mysql \
+    && docker-php-ext-install -j$(nproc) pdo_mysql \
     && echo "xdebug.mode = debug" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
     #&& echo "xdebug.start_with_request = yes" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.client_port = 9003" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
