@@ -1,14 +1,19 @@
 FROM php:8.0.0-apache
 
 ARG TIMEZONE
+ARG HOME
 
 ENV TZ=${TIMEZONE}
 ENV COMPOSER_HOME=/tmp/.composer
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+ENV PATH="${HOME}/.npm/bin:$PATH"
+ENV HOME=${HOME}
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
-    && sed -ri -e 's!/var/www/!/var/www/html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf 
+    && sed -ri -e 's!/var/www/!/var/www/html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+    && mkdir -p ${HOME}/.npm \
+    && chmod -R 777 ${HOME}
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt install -y libzip-dev zip unzip nodejs \
@@ -27,6 +32,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && echo "xdebug.discover_client_host = true" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
     && a2enmod rewrite \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    # && npm config set prefix /home/app/.npm
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 && php -r '$checksum = file_get_contents("https://composer.github.io/installer.sig"); \
