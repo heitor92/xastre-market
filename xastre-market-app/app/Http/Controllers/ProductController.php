@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('products');
     }
 
     /**
@@ -35,9 +36,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-
-        $product->name = $request->name;
+        //$product = new Product();
+        var_dump($request->name);
+        //$product->name = $request->name;
+        //return new Response('', 200, []);
+        $response = new Response();
+        return response('Hello World', 200);
     }
 
     /**
