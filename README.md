@@ -4,16 +4,16 @@
 <img src=https://simpleicons.org/icons/php.svg width="80"><img src=https://simpleicons.org/icons/laravel.svg width="80"><img src=https://simpleicons.org/icons/html5.svg width="80"><img src=https://simpleicons.org/icons/css3.svg width="80"><img src=https://simpleicons.org/icons/docker.svg width="80"><img src=https://simpleicons.org/icons/gnubash.svg width="80"><img src=https://simpleicons.org/icons/javascript.svg width="80">
 <img src=https://simpleicons.org/icons/jquery.svg width="80"><img src=https://simpleicons.org/icons/yarn.svg width="80"><img src=https://simpleicons.org/icons/npm.svg width="80"><img src=https://simpleicons.org/icons/composer.svg width="80"><img src=https://simpleicons.org/icons/linux.svg width="80"><img src=https://simpleicons.org/icons/debian.svg width="80">
 
-<p align="center" >Um simples CRUD de produtos e suas localições em uma dependência</p>
+<p align="center" >Um simples CRUD de produtos em laravel.</p>
 
 <a href="https://github.com/heitor92/xastre-market/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/heitor92/xastre-market"></a>
 <a href="https://github.com/heitor92/xastre-market/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/heitor92/xastre-market"></a>
 <a href="https://github.com/heitor92/xastre-market/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/heitor92/xastre-market"></a>
-[Tabela de Conteudo](#tabela-de-conteudo)
+[Tabela de Conteúdo](tabela-de-conteudo)
 =================
 <!--ts-->
    * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Tabela de Conteúdo](#tabela-de-conteudo)
    * [Tabela informativa](#tabela-informativa)
    * [Instalação](#instalacao)
         * [instalação do projeto](#instalacao-do-projeto)
@@ -22,7 +22,7 @@
       * [Local files](#local-files)
 <!--te-->
 
-[Tabela informativa](#tabela-informativa)
+[Tabela informativa](tabela-informativa)
 ======================
 containers
 --------
@@ -41,9 +41,9 @@ scripts
 | yarn.sh | xastre-market/yarn.sh|
 | cmd.sh | xastre-market/cmd.sh|
 
-[Instalação](#instalacao)
+[Instalação](instalacao)
 =======
-[instalação do projeto](#instalacao-do-projeto)
+[instalação do projeto](instalacao-do-projeto)
 -------
 Clone o Repositório:
 ```
