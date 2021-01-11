@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products');
+        $products = $this->paginateProducts();
+        return view('products', ['products' => $products]);
     }
 
     /**
@@ -36,12 +37,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //$product = new Product();
-        var_dump($request->name);
-        //$product->name = $request->name;
-        //return new Response('', 200, []);
-        $response = new Response();
-        return response('Hello World', 200);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->location = "{$request->corredor}{$request->prateleira}{$request->lado}";
+        $product->save();
+        //$response = new Response();
+        $products = $this->paginateProducts();
+        return view('tbody', ['products' => $products]);
     }
 
     /**
@@ -75,7 +77,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->name = $request->name;
+        $product->location = "{$request->corredor}{$request->prateleira}{$request->lado}";
+
+        $product->save();
+        $products = $this->paginateProducts();
+        return view('tbody', ['products' => $products]);
     }
 
     /**
@@ -86,6 +95,17 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->delete();
+        $products = $this->paginateProducts();
+        return view('tbody', ['products' => $products]);
+    }
+
+    private function paginateProducts()
+    {
+        $products = Product::paginate(10);
+        $products->withPath('/');
+        return $products;
     }
 }
