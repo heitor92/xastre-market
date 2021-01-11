@@ -9,20 +9,21 @@
 <a href="https://github.com/heitor92/xastre-market/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/heitor92/xastre-market"></a>
 <a href="https://github.com/heitor92/xastre-market/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/heitor92/xastre-market"></a>
 <a href="https://github.com/heitor92/xastre-market/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/heitor92/xastre-market"></a>
-[Tabela de Conteúdo](tabela-de-conteudo)
+
+[Tabela de conteudo](#tabela-de-conteudo)
 =================
 <!--ts-->
    * [Sobre](#Sobre)
-   * [Tabela de Conteúdo](#tabela-de-conteudo)
+   * [Tabela de conteudo](#tabela-de-conteudo)
    * [Tabela informativa](#tabela-informativa)
-   * [Instalação](#instalacao)
-        * [instalação do projeto](#instalacao-do-projeto)
+   * [Instalacao](#instalacao)
+        * [instalacao do projeto](#instalacao-do-projeto)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
       * [Local files](#local-files)
 <!--te-->
 
-[Tabela informativa](tabela-informativa)
+[Tabela informativa](#tabela-informativa)
 ======================
 containers
 --------
@@ -41,9 +42,9 @@ scripts
 | yarn.sh | xastre-market/yarn.sh|
 | cmd.sh | xastre-market/cmd.sh|
 
-[Instalação](instalacao)
+[Instalacao](#instalacao)
 =======
-[instalação do projeto](instalacao-do-projeto)
+[instalacao do projeto](#instalacao-do-projeto)
 -------
 Clone o Repositório:
 ```
@@ -87,7 +88,7 @@ Para Executar as Seeders:
 ```
 Pronto! agora acesse [http://localhost](http://localhost)
 
-[Como usar](como-usar)
+[Como usar](#como-usar)
 =========
 Acesse [http://localhost](http://localhost) depois de feito os passos de instalação.
 
@@ -96,7 +97,7 @@ Para executar comando no container:
 ./cmd.sh bash
 ```
 
-[Pre Requisitos](pre-requisitos)
+[Pre Requisitos](#pre-requisitos)
 ------------
  * docker
  * docker-compose
