@@ -38,6 +38,7 @@ scripts
 | php.sh | xastre-market/php.sh |
 | npm.sh | xastre-market/npm.sh |
 | yarn.sh | xastre-market/yarn.sh|
+| cmd.sh | xastre-market/cmd.sh|
 
 [Instalação](#instalacao)
 =======
@@ -51,12 +52,28 @@ Entre no diretorio do projeto:
 ```
 $ cd xastre-market
 ```
-Execute para levantar os containers de app e banco:
+Execute a sesuir para construir e subir os containers de app e banco:
 ```
 docker-compose up --build
 ```
-Depois dos containers construído é só acessar a [http://localhost](http://localhost).
-vá ao terminal novamente faça a migração do banco de dados:
+Instale as dependências PHP:
+```
+./composer.sh install
+```
+Em seguida do JavaScript e CSS:
+```
+./yarn.sh install
+```
+copie o arquivo .env.example:
+```
+./cmd.sh cp .env.example .env
+```
+Gere uma key no app:
+```
+./php.sh artisan key:generate
+```
+Em seguida faça a migração do banco de dados:
+
 ```
 ./php.sh artisan migrate:install
 ```
@@ -67,18 +84,15 @@ Para Executar as Seeders:
 ```
 ./php.sh artisan db:seed
 ```
+Pronto! agora acesse [http://localhost](http://localhost)
 
 [Como usar](como-usar)
 =========
 Acesse [http://localhost](http://localhost) depois de feito os passos de instalação.
 
-Para executar comando root no container:
+Para executar comando no container:
 ```
-docker exec -ti xastre-market-app bash
-```
-Para executar comandos como seu usuario:
-```
-docker exec -ti -u $(id -u):$(id -g) xastre-market-app bash
+./cmd.sh bash
 ```
 
 [Pre Requisitos](pre-requisitos)
