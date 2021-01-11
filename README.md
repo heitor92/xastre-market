@@ -53,7 +53,7 @@ $ cd xastre-market
 ```
 Execute para levantar os containers de app e banco:
 ```
-docker-compose up
+docker-compose up --build
 ```
 Depois dos containers construído é só acessar a [http://localhost](http://localhost).
 vá ao terminal novamente faça a migração do banco de dados:
