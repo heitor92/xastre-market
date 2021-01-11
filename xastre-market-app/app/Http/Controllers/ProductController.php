@@ -102,9 +102,26 @@ class ProductController extends Controller
         return view('tbody', ['products' => $products]);
     }
 
-    private function paginateProducts()
+     /**
+     * Search the specified resource from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function pesquisar(Request $request)
     {
-        $products = Product::paginate(10);
+        $query = $request->get('query');
+        $products = $this->paginateProducts($query);
+        return view('tbody', ['products' => $products]);
+    }
+
+    private function paginateProducts($query = null)
+    {
+        if(empty($query)){
+            $products = Product::orderBy('id', 'desc')->paginate(10);
+        } else {
+            $products = Product::where('name', 'like', "{$query}%")->orderBy('id', 'desc')->paginate(10);
+        }
         $products->withPath('/');
         return $products;
     }

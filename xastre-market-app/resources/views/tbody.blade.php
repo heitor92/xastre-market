@@ -9,30 +9,27 @@
     </thead>
     <tbody>
         @foreach ($products as $product)
+        @php
+            $created = strtotime($product->created_at . '+ 60 seconds');
+            $agora = strtotime("now");
+            $boolNovo = $created > $agora;
+        @endphp
         <tr>
             <th scope="row">{{ $product->id }}</th>
-            <td class="w-50">{{ $product->name }}</td>
+            <td class="w-50">{{ $product->name }}  @php echo $boolNovo ? '<span class="badge badge-pill badge-primary">Novo</span>' : ''; @endphp</td>
             <td class="w-25">{{ $product->location }}</td>
             <td>
-                <button type="button" class="btn btn-secondary" 
-                data-id-product="{{ $product->id }}" data-name-product="{{ $product->name }}" 
-                data-location-product="{{ $product->location }}" data-action-produto="update" 
-                data-toggle="modal" data-target="#modalVisualizarProduto">
+                <button type="button" class="btn btn-secondary" data-id-product="{{ $product->id }}" data-name-product="{{ $product->name }}" data-location-product="{{ $product->location }}" data-action-produto="update" data-toggle="modal" data-target="#modalVisualizarProduto">
                     <i class="bi bi-eye"></i>
                 </button>
-                <button type="button" class="btn btn-secondary" 
-                data-id-product="{{ $product->id }}" data-name-product="{{ $product->name }}" 
-                data-location-product="{{ $product->location }}" data-action-produto="update" 
-                data-toggle="modal" data-target="#modalProduto">
+                <button type="button" class="btn btn-secondary" data-id-product="{{ $product->id }}" data-name-product="{{ $product->name }}" data-location-product="{{ $product->location }}" data-action-produto="update" data-toggle="modal" data-target="#modalProduto">
                     <i class="bi bi-pencil-fill"></i>
                 </button>
 
-                <button type="button" class="btn btn-danger" data-toggle="modal" 
-                data-target="#modalExcluirProduto" data-id-product="{{ $product->id }}" 
-                data-name-product="{{ $product->name }}" data-location-product="{{ $product->location }}">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluirProduto" data-id-product="{{ $product->id }}" data-name-product="{{ $product->name }}" data-location-product="{{ $product->location }}">
                     <i class="bi bi-trash-fill"></i>
                 </button>
-                
+
             </td>
         </tr>
         @endforeach

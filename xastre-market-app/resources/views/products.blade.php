@@ -112,6 +112,12 @@
     <!-- Fim Modal -->
 
     <div class="container my-4">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+            </div>
+            <input id="pesquisar-produto" type="text" class="form-control" placeholder="Pesquisar produto..." aria-label="Pesquisar produto" autocomplete="off">
+        </div>
         <!-- Início de tabela de Listagem -->
         <div class="row">
             <div class="col" id='list-products'>
@@ -234,7 +240,7 @@
                 let prateleira = locationProduct.charAt(1) ?? "";
                 let lado = locationProduct.charAt(2) ?? "";
                 let modal = $(this);
-                let titulo = action === 'insert' ? 'Cadastro de Produto': 'Alteração de Produto';
+                let titulo = action === 'insert' ? 'Cadastro de Produto' : 'Alteração de Produto';
                 modal.find('.modal-header .modal-title').text(titulo);
                 modal.find('.modal-footer input[data-action-produto]').data('action-produto', action);
                 modal.find('.modal-body #produto #name').val(nameProduct);
@@ -267,12 +273,26 @@
                         $('#modalExcluirProduto').modal('hide');
                     }
                 }).done(function(response) {
-                    console.log(response);
                     table.html(response);
                 });
                 return false;
             });
-            
+            $('#pesquisar-produto').on('keyup', function (event) {
+                //console.log($(this).val());
+                let pesquisar = $(this).val();
+                $.ajax({
+                    type: "GET",
+                    url: `/products/pesquisar/`,
+                    data: {'query': pesquisar},
+                    success: function(data) {
+                        $('#modalExcluirProduto').modal('hide');
+                    }
+                }).done(function(response) {
+                    table.html(response);
+                });
+                return false;
+            });
+
         });
         $('.pagination').addClass('justify-content-center');
     </script>
