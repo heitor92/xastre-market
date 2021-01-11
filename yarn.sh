@@ -5,6 +5,6 @@ NAME_CONTAINER="$(docker ps --filter "label=command.php" --filter status=running
 echo "Executado yarn no container $NAME_CONTAINER"
 echo "WorkDir Container: /var/www/html/"
 echo "WorkDir Local: $(pwd)/xastre-market-app/"
-docker exec -it --user $(id -u):$(id -g) $NAME_CONTAINER yarn "$@"
+docker exec -it $NAME_CONTAINER yarn "$@"
 
 exit $?

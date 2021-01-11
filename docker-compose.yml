@@ -7,13 +7,11 @@ services:
     container_name: xastre-market-app
     volumes: 
       - ./xastre-market-app:/var/www/html
-      - /tmp:/tmp
     build:
       context: containers/app/
       dockerfile: Dockerfile.dev
       args:
         - TIMEZONE=America/Sao_Paulo
-        - HOME=${HOME}
     ports:
       - "80:80"
     depends_on: 
