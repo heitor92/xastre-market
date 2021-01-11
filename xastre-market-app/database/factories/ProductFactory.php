@@ -22,7 +22,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->regexify('[A-Z]{5}[0-4]{3}'),
+            'location' => $this->faker->regexify('[A-C]{1}[1-4]{1}[DE]{1}'),
         ];
     }
 }

@@ -22,7 +22,7 @@
     <!-- Início de Menu -->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand"><i class="bi bi-cart4"></i> Xastre Market</a>
-        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalProduto" data-action-produto="insert"><i class="bi bi-plus"></i>Novo</button>
+        <button class="btn btn-light" type="button" data-toggle="modal" data-target="#modalProduto" data-action-produto="insert"><i class="bi bi-plus"></i>Novo</button>
     </nav>
     <!-- Fim de Menu -->
 
@@ -41,13 +41,13 @@
                     <form id="produto">
                         <input type="hidden" name="idProduto" value="" id="idProduto">
                         <div class="form-row">
-                            <label for="name" class="col-sm-2 col-form-label">Nome:</label>
-                            <input type="text" class="form-control col-sm-10" id="name" name="name" placeholder="Digite o nome do produto..." autocomplete="off">
+                            <label for="name" class="col-sm-2 col-form-label my-2">Nome:</label>
+                            <input type="text" class="form-control col-sm-10 my-2" id="name" name="name" placeholder="Digite o nome do produto..." autocomplete="off">
                         </div>
                         <fieldset>
                             <div class="form-row">
-                                <legend class="col-form-label col-sm-2 pt-0">Corredor:</legend>
-                                <div class="col-sm-10">
+                                <legend class="col-form-label col-sm-2 pt-0 my-2">Corredor:</legend>
+                                <div class="col-sm-10 my-2">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="corredor" id="corredorA" value="A" checked>
                                         <label class="form-check-label" for="corredorA">A</label>
@@ -65,8 +65,8 @@
                         </fieldset>
                         <fieldset>
                             <div class="form-row">
-                                <legend class="col-form-label col-sm-2 pt-0">Prateleira:</legend>
-                                <div class="col-sm-10">
+                                <legend class="col-form-label col-sm-2 pt-0 my-2">Prateleira:</legend>
+                                <div class="col-sm-10 my-2">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="prateleira" id="prateleira1" value="1" checked>
                                         <label class="form-check-label" for="prateleira1">1</label>
@@ -88,8 +88,8 @@
                         </fieldset>
                         <fieldset>
                             <div class="form-row">
-                                <legend class="col-form-label col-sm-2 pt-0">Lado:</legend>
-                                <div class="col-sm-10">
+                                <legend class="col-form-label col-sm-2 pt-0 my-2">Lado:</legend>
+                                <div class="col-sm-10 my-2">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="lado" id="ladoe" value="E" checked>
                                         <label class="form-check-label" for="ladoe">Esquerda</label>

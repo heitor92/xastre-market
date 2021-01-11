@@ -11011,6 +11011,75 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff2?01c9cc54aa4917872f00f093
 .bi-zoom-in::before { content: "\f5f0"; }
 .bi-zoom-out::before { content: "\f5f1"; }
 
+.bg-dark {
+    background-color: #3A5A40 !important;
+}
+.btn-light {
+    color: #E7ECEF;
+    background-color: #F58529;
+    border-color: transparent;
+    font-weight: 600;
+    border-bottom-color: #B5621F;
+    border-bottom-width: 3px;
+}
+.table .thead-dark th{
+    border-color: transparent;
+    background-color: #3A5A40;
+    border-bottom-color: #29402D;
+    border-bottom-width: 5px;
+
+}
+
+.btn-light:hover {
+    color: #3A5A40;
+    border-bottom-color:#A6A8AB;
+    border-bottom-width: 3px;
+}
+.table th, .table td{
+    background-color: #E7ECEF;
+    border-top: 1px solid #6D6F70;
+}
+.btn-outline-secondary {
+    color:  #E7ECEF;
+    border-color: transparent;
+    background-color: #F58529;
+}
+.btn-outline-secondary:hover {
+    color:  #3A5A40;
+    border-color: transparent;
+    background-color: #E7ECEF;
+}
+
+.btn-secondary {
+    color: #E7ECEF;
+    border-bottom-color: #565d63;
+    border-bottom-width: 3px;
+}
+.btn-danger{
+    background-color: #EB505A;
+    border-bottom-color: #5C161D;
+    border-bottom-width: 3px;
+}
+
+.btn-secondary:hover {
+    border-bottom-color: #565d63;
+    border-bottom-width: 3px;
+}
+.btn-danger:hover{
+    border-bottom-color: #5C161D;
+    border-bottom-width: 3px;
+}
+.form-control{
+    border:1px solid #3A5A40;
+}
+.page-item.active .page-link {
+    background-color: #3A5A40;
+    border-color:#3A5A40;
+}
+
+.page-link{
+    color: #3A5A40;
+}
 
 
 
