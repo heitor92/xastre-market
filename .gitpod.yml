@@ -11,4 +11,5 @@ tasks:
     && sed -ri -e 's!DB_PASSWORD=secret!DB_PASSWORD=!g' .env
     && composer install
     && php artisan key:generate
-    && php artisan migrate"
+    && php artisan migrate 
+    && php artisan db:seed"
