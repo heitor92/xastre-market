@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+ports:
+  - port: 8001
+    onOpen: open-preview
+tasks:
+  - init: "cd xastre-market-app/ && gp await-port 3306 && mysql -e 'CREATE DATABASE db_market;'"
+    command: "export GITPOD_REPO_ROOT=$PWD && apachectl start 
+    && cp .env.example .env 
+    && sed -ri -e 's!DB_HOST=db!DB_HOST=localhost!g' .env
+    && sed -ri -e 's!DB_PASSWORD=secret!DB_PASSWORD=!g' .env
+    && composer install
+    && php artisan key:generate
+    && php artisan migrate 
+    && php artisan db:seed"
