@@ -4,5 +4,5 @@ image:
 tasks:
   - init: 'cd xastre-market-app/'
     command: "export GITPOD_REPO_ROOT=$PWD && apachectl start 
-    && cp .env.example .env && sed -ri -e 's!DB_HOST=db!$DB_HOST=localhost!g'
+    && cp .env.example .env && sed -ri -e 's!DB_HOST=db!$DB_HOST=localhost!g' .env
     && composer install"
