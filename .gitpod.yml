@@ -1,7 +1,7 @@
 image:
   file: .gitpod.Dockerfile
 ports:
-  - port: 8080
+  - port: 8001
     onOpen: open-preview
 tasks:
   - init: "cd xastre-market-app/ && mysql -e 'CREATE DATABASE db_market;'"
