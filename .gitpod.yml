@@ -4,7 +4,7 @@ ports:
   - port: 8080
     onOpen: open-preview
 tasks:
-  - init: 'cd xastre-market-app/'
+  - init: "cd xastre-market-app/ && mysql -e 'CREATE DATABASE db_market;'"
     command: "export GITPOD_REPO_ROOT=$PWD && apachectl start 
     && cp .env.example .env 
     && sed -ri -e 's!DB_HOST=db!DB_HOST=localhost!g' .env
