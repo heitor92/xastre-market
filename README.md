@@ -29,10 +29,10 @@
 ======================
 containers
 --------
-| Nome | Imagem | Localização Dockfile |
-| ------------- |:-------------:|---------------------|
-| xastre-market-app| php:8.0.0-apache (oficial)| xastre-market/containers/app/Dockerfile.dev | 
-| xastre-market-db | mysql:8 (oficial)|xastre-market/containers/db/Dockerfile.dev | 
+| Nome | Imagem Base | Localização Dockerfile | Imagem Construída |
+| ------------- |:-------------:|---------------------| --------------------------------------|
+| xastre-market-app| php:8.0.0-apache (oficial)| xastre-market/containers/app/Dockerfile.dev | [heitor92/xastre-market-app](https://hub.docker.com/r/heitor92/xastre-market-app) |
+| xastre-market-db | mysql:8 (oficial)|xastre-market/containers/db/Dockerfile.dev | [heitor92/xastre-market-db](https://hub.docker.com/r/heitor92/xastre-market-db) |
 
 scripts
 --------
